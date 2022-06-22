@@ -7,19 +7,19 @@ ARG TARGETOS
 ARG TARGETARCH
 ENV ANSIBLE_VERSION=5.9.0 \
   AZCLI_VERSION=2.33.1 \
-  DOCKER_VERSION=20.10.2 \
-  ETCDCTL_VERSION=v3.4.8 \
+  DOCKER_VERSION=20.10.17 \
+  ETCDCTL_VERSION=v3.5.4 \
   GO_VERSION=1.17.11 \
-  GOLANGCI_LINT_VERSION=v1.45.2 \
+  GOLANGCI_LINT_VERSION=v1.46.2 \
   GOSS_VERSION=v0.3.18 \
-  HELM_VERSION=3.6.2 \
-  KUBECTL_VERSION=v1.21.3 \
-  PACKER_VERSION=1.8.1 \
-  PROTOBUF_VERSION=3.7.0 \
-  PYJWT_VERSION=2.1.0 \
+  HELM_VERSION=3.9.0 \
+  KUBECTL_VERSION=v1.24.1 \
+  PACKER_VERSION=1.8.2 \
+  PROTOBUF_VERSION=3.20.1 \
+  PYJWT_VERSION=2.4.0 \
   PYWINRM_VERSION=0.4.3 \
   SHELLCHECK_VERSION=v0.8.0 \
-  SHFMT_VERSION=3.4.2 \
+  SHFMT_VERSION=3.5.1 \
   UPX_VERSION=3.96 \
   PATH=$PATH:/usr/local/go/bin:/go/bin:/usr/local/bin/docker \
   GOPATH=/go
@@ -64,7 +64,8 @@ RUN \
   wget \
   yq \
   zip \
-  && curl -L https://golang.org/dl/go${GO_VERSION}.${TARGETOS}-${TARGETARCH}.tar.gz | tar -C /usr/local -xz \
+  libsodium-dev \
+  && curl -L https://go.dev/dl/go${GO_VERSION}.${TARGETOS}-${TARGETARCH}.tar.gz | tar -C /usr/local -xz \
   && if [ "${TARGETARCH}"="arm64" ]; \
     then \
         curl -sSL -o /tmp/protoc.zip https://github.com/google/protobuf/releases/download/v${PROTOBUF_VERSION}/protoc-${PROTOBUF_VERSION}-linux-aarch_64.zip \

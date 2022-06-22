@@ -1,6 +1,6 @@
 VERSION ?= $(shell git describe --tags --exact-match 2>/dev/null || echo latest)
-REGISTRY ?= quay.io/
-IMAGE_PREFIX ?= deis
+REGISTRY ?= edgehub/
+IMAGE_PREFIX ?= edgehub
 IMAGE := ${REGISTRY}${IMAGE_PREFIX}/go-dev:${VERSION}
 
 # scripts are checked *after* build, so use paths inside the container
@@ -17,6 +17,9 @@ info:
 
 build:
 	docker build -t ${IMAGE} rootfs
+
+buildx:
+	docker buildx build --platform=linux/amd64,linux/arm64 -t ${IMAGE} rootfs --load
 
 push: build
 	docker push ${IMAGE}
