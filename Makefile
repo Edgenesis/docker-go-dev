@@ -19,7 +19,7 @@ build:
 	docker build -t ${IMAGE} rootfs
 
 buildx:
-	docker buildx build --platform=linux/amd64,linux/arm64 -t ${IMAGE} rootfs
+	docker buildx build --platform=linux/amd64,linux/arm64 -t ${IMAGE} rootfs --load
 
 push: build
 	docker push ${IMAGE}
