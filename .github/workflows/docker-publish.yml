@@ -15,6 +15,7 @@ on:
 
 env:
   IMAGE_NAME: go-dev
+  DOCKER_PLATFORMS: linux/amd64,linux/arm64
 
 jobs:
   # Run tests.
@@ -63,7 +64,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build rootfs --tag $IMAGE_NAME
+        run: docker buildx build --platform=${DOCKER_PLATFORMS} rootfs --tag $IMAGE_NAME
 
       - name: Log into GitHub package registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
