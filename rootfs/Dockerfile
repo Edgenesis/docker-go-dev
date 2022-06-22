@@ -65,7 +65,7 @@ RUN \
   yq \
   zip \
   libsodium-dev \
-  && curl -L https://golang.org/dl/go${GO_VERSION}.${TARGETOS}-${TARGETARCH}.tar.gz | tar -C /usr/local -xz \
+  && curl -L https://go.dev/dl/go${GO_VERSION}.${TARGETOS}-${TARGETARCH}.tar.gz | tar -C /usr/local -xz \
   && if [ "${TARGETARCH}"="arm64" ]; \
     then \
         curl -sSL -o /tmp/protoc.zip https://github.com/google/protobuf/releases/download/v${PROTOBUF_VERSION}/protoc-${PROTOBUF_VERSION}-linux-aarch_64.zip \
