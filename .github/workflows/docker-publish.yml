@@ -40,7 +40,7 @@ jobs:
         name: Build and export to Docker
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: rootfs
           load: true
           tags: ${{ env.TEST_TAG }}
       -
@@ -100,7 +100,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: rootfs
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ env.GITHUB_ORG }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
