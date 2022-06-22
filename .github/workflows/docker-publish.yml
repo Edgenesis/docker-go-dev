@@ -90,7 +90,7 @@ jobs:
           push: true
           context: rootfs
           tags: |
-            ghcr.io/${{ env.GITHUB_ENV }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
+            ghcr.io/${{ env.OWNER_LC }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
           # cache-from: type=local,src=/tmp/.buildx-cache
           # cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
