@@ -64,6 +64,7 @@ RUN \
   wget \
   yq \
   zip \
+  libsodium-dev \
   && curl -L https://golang.org/dl/go${GO_VERSION}.${TARGETOS}-${TARGETARCH}.tar.gz | tar -C /usr/local -xz \
   && if [ "${TARGETARCH}"="arm64" ]; \
     then \
