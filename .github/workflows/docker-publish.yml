@@ -85,7 +85,7 @@ jobs:
 
       - name: Push image to Docker Hub
         run: |
-          GITHUB_ORG=$(echo "${{ github.repository }}" | sed -e 's#/.*##')
+          GITHUB_ORG="edgehub"
           IMAGE_ID=$GITHUB_ORG/$IMAGE_NAME
 
           # Change all uppercase to lowercase
