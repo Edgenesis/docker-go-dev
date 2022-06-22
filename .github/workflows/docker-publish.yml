@@ -76,6 +76,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: downcase REPO
+        run: |
+          echo "REPO=${github.repository_owner,,}" >>${GITHUB_ENV}
+
       - name: Build and push to Github
         uses: docker/build-push-action@v2
         with:
@@ -84,7 +88,7 @@ jobs:
           push: true
           context: rootfs
           tags: |
-            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
+            ghcr.io/${{ env.GITHUB_ENV }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }}
           # cache-from: type=local,src=/tmp/.buildx-cache
           # cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
