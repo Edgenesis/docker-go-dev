@@ -99,8 +99,7 @@ jobs:
           build-args: GHCR_PAT=${{ secrets.GPR_TOKEN }}
           push: true
           context: rootfs
-          tags: |
-            ghcr.io/${{ env.OWNER_LC }}/${{ env.IMAGE_NAME }}:${{ fromJson(steps.gen_tags.outputs.tags) }}
+          tags: ghcr.io/${{ env.OWNER_LC }}/${{ env.IMAGE_NAME }}:${{ fromJson(steps.gen_tags.outputs.tags) }}
           # cache-from: type=local,src=/tmp/.buildx-cache
           # cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
 
