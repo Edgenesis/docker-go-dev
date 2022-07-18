@@ -55,6 +55,7 @@ RUN \
   python3-dev \
   python3-pip \
   python3-setuptools \
+  python-cffi \
   rsync \
   ruby \
   unzip \
