@@ -51,10 +51,10 @@ RUN \
   netcat \
   openssh-client \
   procps \
-  python3 \
-  python3-dev \
-  python3-pip \
-  python3-setuptools \
+  python3.9 \
+  python3.9-dev \
+  python3.9-pip \
+  python3.9-setuptools \
   rsync \
   ruby \
   unzip \
@@ -133,7 +133,7 @@ RUN \
   && LIBSODIUM_MAKE_ARGS=-j4 pip3 install --disable-pip-version-check --no-cache-dir --upgrade azure-cli==${AZCLI_VERSION} PyJWT==${PYJWT_VERSION} shyaml pywinrm==${PYWINRM_VERSION} \
   && LIBSODIUM_MAKE_ARGS=-j4 pip3 install --disable-pip-version-check --no-cache-dir --upgrade ansible==${ANSIBLE_VERSION} ansible-core==2.12.6 --force-reinstall \
   && ansible-galaxy collection install ansible.windows:==1.10.0 \
-  && apt-get purge --auto-remove -y libffi-dev python3-dev \
+  && apt-get purge --auto-remove -y libffi-dev python3.9-dev \
   && apt-get autoremove -y \
   && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man /usr/share/doc ${GOPATH}/pkg/* ${GOPATH}/src/* /root/cache /root/.cache \
