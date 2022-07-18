@@ -103,15 +103,15 @@ RUN \
   && mv /tmp/etcdctl /usr/local/bin/etcdctl \
   && rm /tmp/etcd-${ETCDCTL_VERSION}.tar.gz \
   && go install -v \
-  github.com/AlekSi/gocov-xml@latest \
-  github.com/axw/gocov/gocov@latest \
-  github.com/go-delve/delve/cmd/dlv@latest \
-  github.com/dgrijalva/jwt-go/cmd/jwt@latest \
-  github.com/golang/protobuf/protoc-gen-go@latest \
-  github.com/haya14busa/goverage@latest \
-  github.com/jteeuwen/go-bindata@latest \
-  github.com/mitchellh/gox@latest \
-  github.com/onsi/ginkgo/ginkgo@latest \
+  github.com/AlekSi/gocov-xml \
+  github.com/axw/gocov/gocov \
+  github.com/go-delve/delve/cmd/dlv \
+  github.com/dgrijalva/jwt-go/cmd/jwt \
+  github.com/golang/protobuf/protoc-gen-go \
+  github.com/haya14busa/goverage \
+  github.com/jteeuwen/go-bindata \
+  github.com/mitchellh/gox \
+  github.com/onsi/ginkgo/ginkgo \
   && curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b ${GOPATH}/bin ${GOLANGCI_LINT_VERSION} \
   && if [ "${TARGETARCH}"="arm64" ]; \
     then \
