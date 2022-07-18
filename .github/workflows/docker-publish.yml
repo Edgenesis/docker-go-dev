@@ -23,30 +23,30 @@ env:
 jobs:
   # Run tests.
   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
-  test:
-    runs-on: ubuntu-latest
+#   test:
+#     runs-on: ubuntu-latest
 
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v3
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      -
-        name: Build and export to Docker
-        uses: docker/build-push-action@v3
-        with:
-          context: rootfs
-          load: true
-          tags: ${{ env.TEST_TAG }}
-      -
-        name: Test
-        run: |
-          docker run --rm ${{ env.TEST_TAG }}
+#     steps:
+#       -
+#         name: Checkout
+#         uses: actions/checkout@v3
+#       -
+#         name: Set up QEMU
+#         uses: docker/setup-qemu-action@v2
+#       -
+#         name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v2
+#       -
+#         name: Build and export to Docker
+#         uses: docker/build-push-action@v3
+#         with:
+#           context: rootfs
+#           load: true
+#           tags: ${{ env.TEST_TAG }}
+#       -
+#         name: Test
+#         run: |
+#           docker run --rm ${{ env.TEST_TAG }}
 
   # Push image to GitHub Packages, Docker Hub, and quay.io.
   # Microsoft Container Registry (MCR) packaging and publishing is handled by
