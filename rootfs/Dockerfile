@@ -102,15 +102,6 @@ RUN \
   && tar -C /tmp -xvzf /tmp/etcd-${ETCDCTL_VERSION}.tar.gz --strip-components=1 etcd-${ETCDCTL_VERSION}-${TARGETOS}-${TARGETARCH}/etcdctl \
   && mv /tmp/etcdctl /usr/local/bin/etcdctl \
   && rm /tmp/etcd-${ETCDCTL_VERSION}.tar.gz \
-  && go install -v \
-  github.com/AlekSi/gocov-xml@latest \
-  github.com/axw/gocov/gocov@latest \
-  github.com/go-delve/delve/cmd/dlv@latest \
-  github.com/dgrijalva/jwt-go/cmd/jwt@latest \
-  github.com/golang/protobuf/protoc-gen-go@latest \
-  github.com/haya14busa/goverage@latest \
-  github.com/mitchellh/gox@latest \
-  github.com/onsi/ginkgo/ginkgo@latest \
   && curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b ${GOPATH}/bin ${GOLANGCI_LINT_VERSION} \
   && if [ "${TARGETARCH}"="arm64" ]; \
     then \
