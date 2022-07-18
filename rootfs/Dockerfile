@@ -109,7 +109,6 @@ RUN \
   github.com/dgrijalva/jwt-go/cmd/jwt@latest \
   github.com/golang/protobuf/protoc-gen-go@latest \
   github.com/haya14busa/goverage@latest \
-  github.com/jteeuwen/go-bindata/...@latest \
   github.com/mitchellh/gox@latest \
   github.com/onsi/ginkgo/ginkgo@latest \
   && curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b ${GOPATH}/bin ${GOLANGCI_LINT_VERSION} \
