@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 LABEL name="deis-go-dev" \
   maintainer="Matt Boersma <matt.boersma@microsoft.com>"
@@ -130,7 +130,6 @@ RUN \
   && tar -xvf /tmp/upx.tar.xz -C /tmp \
   && mv /tmp/upx-${UPX_VERSION}-${TARGETARCH}_${TARGETOS}/upx /usr/local/bin/upx \
   && pip3 install --disable-pip-version-check --no-cache-dir --upgrade pip \
-  && pip3 install cffi==1.15.1 \
   && LIBSODIUM_MAKE_ARGS=-j4 pip3 install --disable-pip-version-check --no-cache-dir --upgrade azure-cli==${AZCLI_VERSION} PyJWT==${PYJWT_VERSION} shyaml pywinrm==${PYWINRM_VERSION} \
   && LIBSODIUM_MAKE_ARGS=-j4 pip3 install --disable-pip-version-check --no-cache-dir --upgrade ansible==${ANSIBLE_VERSION} ansible-core==2.12.6 --force-reinstall \
   && ansible-galaxy collection install ansible.windows:==1.10.0 \
